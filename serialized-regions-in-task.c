@@ -36,12 +36,13 @@ int main(int argc, char **argv) {
             printf("Parallel region 3.\n");
             // ompt_get_task_info returns explicit task flags
             assert_task_type_flags(ompt_get_task_type_flags(0), ompt_task_implicit);
-
+#if 0
 #pragma omp parallel num_threads(1)
             {
               printf("Parallel region 4.\n");
               assert_task_type_flags(ompt_get_task_type_flags(0), ompt_task_implicit);
             }
+#endif
           }
         }
       }
